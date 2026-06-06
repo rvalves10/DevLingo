@@ -5,7 +5,9 @@ import { firebaseEnabled } from "./firebase";
 import { awardLessonXp, levelInfo } from "./userData";
 import { LESSONS, LESSON_ORDER, getLesson, firstIncompleteLesson, trailStatus } from "./lessons";
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3001";
+// Em produção (Vercel) usa rota relativa; em dev usa o servidor Express local.
+const API_URL = import.meta.env.VITE_API_URL ||
+  (import.meta.env.PROD ? "" : "http://localhost:3001");
 
 // ─── DESIGN TOKENS ───────────────────────────────────────────────────────────
 // Concept: "DevLingo OS" — a gamified developer terminal/IDE learning environment.
